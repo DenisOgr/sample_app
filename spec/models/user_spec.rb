@@ -124,5 +124,16 @@ describe User do
       specify { not_found_user.should be false }
     end
   end
+  describe "when email not  be downcase in before_save" do
+    let(:email) { "DENIS2@Examole.com" }
+    before do
+      @user.email = email
+      @user.save()
+    end
+
+    let(:find_user) {User.find(name: @user.name) }
+    it{find_user.email.should == email.downcase }
+  end
+
 end
 
