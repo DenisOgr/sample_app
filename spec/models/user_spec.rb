@@ -131,7 +131,7 @@ describe User do
       @user.save()
     end
 
-    let(:find_user) {User.find(name: @user.name) }
+    let(:find_user) {User.find_by_name(@user.name) }
     it{find_user.email.should == email.downcase }
   end
 
