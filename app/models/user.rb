@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   private
 
     def create_remember_token
-      self.remember_token = 'sdsdsdsdsdsdsds'
+      self.remember_token = SecureRandom.urlsafe_base64
     end
 
   validates :name,  presence: true, length: { maximum: 50 }
